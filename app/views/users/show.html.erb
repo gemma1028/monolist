@@ -1,4 +1,11 @@
+<%= content_for(:head) do %>
+    <% title = "#{@user.name} - Monolist" %>
+    <% description = "#{@user.name}のモノページ。#{@user.name}の欲しいモノ、持ってるモノを表示しています。" %>
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %>" />
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:description" content="<%= description %>" />
+<% end %>
 <%= render 'profile' , user: @user %>
-
 
 <%= render 'items/list' , items: @items %>
