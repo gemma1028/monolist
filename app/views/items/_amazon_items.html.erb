@@ -4,23 +4,26 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% #TODO 商品画像 %>
-            <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
+            <% image_url = amazon_item.get('LargeImage/URL') %>
+            <% image_url ||= "no-image.png" %>
+            <%= image_tag(image_url, alt: amazon_item.get('ItemAttributes/Title')) %>
           </div>
         </div>
         <div class="detail">
           <p class="title">
-            <% #TODO 商品タイトル %>
-            仮タイトル
+            <%= amazon_item.get('ItemAttributes/Title') %>
           </p>
         </div>
         <div class="action clearfix">
-          <%= link_to "" , ownerships_path(asin: item.get('ASIN') , type: "Want") ,
-                      :class => "want-#{item.get('ASIN')} btn-want btn btn-danger btn-sm want",
+          <% asin = amazon_item.get('ASIN') %>
+          <% want_class = current_user.want_by_asin?(asin) ? "wanted" : "want" %>
+          <%= link_to "" , ownerships_path(asin: asin, type: "Want") ,
+                      :class => "want-#{asin} btn-want btn btn-danger btn-sm #{want_class}",
                       :remote => true,
                       :method => :post %>
-          <%= link_to "" , ownerships_path(asin: item.get('ASIN') , type: "Have") ,
-                      :class => "have-#{item.get('ASIN')} btn-have btn btn-warning btn-sm have",
+          <% have_class = current_user.have_by_asin?(asin) ? "haved" : "have" %>
+          <%= link_to "" , ownerships_path(asin: asin , type: "Have") ,
+                      :class => "have-#{asin} btn-have btn btn-warning btn-sm #{have_class}",
                       :remote => true,
                       :method => :post %>
         </div>
