@@ -1,0 +1,36 @@
+.ranking { 
+  margin: 40px 0 20px; 
+  .icon { 
+   width: 128px; 
+   margin: auto; 
+   text-align: center; 
+  } 
+  .name { 
+   margin-bottom: 15px; 
+   text-align: center; 
+    h1 { 
+     text-shadow: 1px 1px 1px #fff; 
+     font-weight: bold; 
+    } 
+  } 
+  .rank-icon { 
+     position: absolute; 
+     bottom: 65px; 
+     right: 10px; 
+   } 
+   .rank-number { 
+     position: absolute; 
+     color: #FFF; 
+     font-size: 22px; 
+     font-weight: 800; 
+     text-align: center; 
+     width: 64px; 
+     bottom: 8px; 
+     right: 0px; 
+   } 
+   .rank-count { 
+     position: absolute; 
+     bottom: 65px; 
+     left: 0px; 
+   } 
+} 

@@ -1,0 +1,18 @@
+<% type_name = type == :have ? "Have" : "Want" %> 
+ <%= content_for(:head) do %> 
+     <% title = "#{type_name} ランキング - Monolist" %> 
+     <% description = "Monolist の #{type_name} ランキング！" %> 
+     <title><%= title %></title> 
+     <meta name="description" content="<%= description %>" /> 
+     <meta property="og:title" content="<%= title %>" /> 
+     <meta property="og:description" content="<%= description %>" /> 
+ <% end %> 
+ <div class="ranking"> 
+   <div class="icon"> 
+     <%= image_tag("rank1.png") %> 
+   </div> 
+   <div class="name"> 
+     <h1><%= type_name %> ランキング<h1> 
+   </div> 
+   <%= render 'rank_list' , items_counts: @items_counts, type: type %> 
+</div>
