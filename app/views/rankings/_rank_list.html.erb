@@ -21,7 +21,7 @@
          <%= render 'items/action' , item: item if logged_in? %> 
          <% rank -= 1 if count == prev_count %> 
          <div class="rank-icon"> 
-           <%= image_tag("rank#{ rank < 3 ? rank : 3 }.png") %> 
+           <%= image_tag("rank#{ rank < 3 ? rank : 3 }.png", :size => '60x60') %> 
            <div class="rank-number"><%= rank %></div> 
          </div> 
          <a href="<%= url_for(item) %>" class="rank-count btn btn-success" role="button"> 
